@@ -223,6 +223,9 @@ endif
 ifeq ($(CIRCUITPY_PEW),1)
 SRC_PATTERNS += _pew/%
 endif
+ifeq ($(CIRCUITPY_NIGHTTRAIN),1)
+SRC_PATTERNS += nighttrain/%
+endif
 
 # All possible sources are listed here, and are filtered by SRC_PATTERNS in SRC_COMMON_HAL
 SRC_COMMON_HAL_ALL = \
@@ -347,6 +350,7 @@ SRC_SHARED_MODULE_ALL = \
 	random/__init__.c \
 	socket/__init__.c \
 	network/__init__.c \
+	nighttrain/__init__.c \
 	storage/__init__.c \
 	struct/__init__.c \
 	terminalio/Terminal.c \

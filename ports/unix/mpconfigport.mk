@@ -40,3 +40,9 @@ MICROPY_PY_JNI = 0
 # Avoid using system libraries, use copies bundled with MicroPython
 # as submodules (currently affects only libffi).
 MICROPY_STANDALONE = 0
+
+CIRCUITPY_NIGHTTRAIN = 1
+
+ifeq ($(CIRCUITPY_NIGHTTRAIN),1)
+FROZEN_MPY_DIRS += $(TOP)/frozen/NightTrain_Conductor
+endif

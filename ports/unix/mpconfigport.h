@@ -215,6 +215,12 @@ extern const struct _mp_obj_module_t mp_module_jni;
 #else
 #define MICROPY_PY_USELECT_DEF
 #endif
+#if CIRCUITPY_NIGHTTRAIN
+#define NIGHTTRAIN_MODULE { MP_OBJ_NEW_QSTR(MP_QSTR_nighttrain), (mp_obj_t)&mp_module_nighttrain },
+extern const struct _mp_obj_module_t mp_module_nighttrain;
+#else
+#define NIGHTTRAIN_MODULE
+#endif
 
 #define MICROPY_PORT_BUILTIN_MODULES \
     MICROPY_PY_FFI_DEF \
@@ -225,6 +231,7 @@ extern const struct _mp_obj_module_t mp_module_jni;
     MICROPY_PY_UOS_DEF \
     MICROPY_PY_USELECT_DEF \
     MICROPY_PY_TERMIOS_DEF \
+    NIGHTTRAIN_MODULE \
 
 // type definitions for the specific machine
 

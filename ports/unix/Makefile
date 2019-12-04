@@ -103,6 +103,10 @@ ifeq ($(MICROPY_PY_THREAD),1)
 CFLAGS_MOD += -DMICROPY_PY_THREAD=1 -DMICROPY_PY_THREAD_GIL=0
 LDFLAGS_MOD += -lpthread
 endif
+ifeq ($(CIRCUITPY_NIGHTTRAIN),1)
+CFLAGS_MOD += -DCIRCUITPY_NIGHTTRAIN=1
+SRC_MOD += shared-module/nighttrain/__init__.c shared-bindings/nighttrain/__init__.c
+endif
 
 ifeq ($(MICROPY_PY_FFI),1)
 

@@ -104,7 +104,7 @@
 #define MICROPY_PY_GC                    (1)
 // Supplanted by shared-bindings/math
 #define MICROPY_PY_MATH                  (0)
-#define MICROPY_PY_MICROPYTHON_MEM_INFO  (0)
+#define MICROPY_PY_MICROPYTHON_MEM_INFO  (1)
 // Supplanted by shared-bindings/struct
 #define MICROPY_PY_STRUCT                (0)
 #define MICROPY_PY_SYS                   (1)
@@ -558,6 +558,13 @@ extern const struct _mp_obj_module_t ustack_module;
 #define RE_MODULE
 #endif
 
+#if CIRCUITPY_NIGHTTRAIN
+#define NIGHTTRAIN_MODULE { MP_OBJ_NEW_QSTR(MP_QSTR_nighttrain), (mp_obj_t)&mp_module_nighttrain },
+extern const struct _mp_obj_module_t mp_module_nighttrain;
+#else
+#define NIGHTTRAIN_MODULE
+#endif
+
 // Define certain native modules with weak links so they can be replaced with Python
 // implementations. This list may grow over time.
 #define MICROPY_PORT_BUILTIN_MODULE_WEAK_LINKS \
@@ -601,6 +608,7 @@ extern const struct _mp_obj_module_t ustack_module;
     MICROCONTROLLER_MODULE \
     NEOPIXEL_WRITE_MODULE \
     NETWORK_MODULE \
+    NIGHTTRAIN_MODULE \
       SOCKET_MODULE \
       WIZNET_MODULE \
     PEW_MODULE \
