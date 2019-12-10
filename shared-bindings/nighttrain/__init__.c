@@ -3,6 +3,13 @@
 #include <assert.h>
 #include "__init__.h"
 
+//| :mod:`nighttrain` --- Low-level animation and neopixel/dotstar parallel renderer
+//| ===========================================================
+//|
+//| .. module:: nighttrain
+//|   :synopsis: Low-level animation and neopixel/dotstar parallel renderer
+//|   :platform: SAMD51
+//|
 STATIC mp_obj_t mod_nighttrain_initialize(void)
 {
 	nighttrain_initialize();
