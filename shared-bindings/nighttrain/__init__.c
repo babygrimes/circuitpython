@@ -1,5 +1,6 @@
 // Copyright (c) 2019 David Grimes <david@grimes-family.com>
 
+#include <assert.h>
 #include "__init__.h"
 
 STATIC mp_obj_t mod_nighttrain_initialize(void)
@@ -22,6 +23,7 @@ STATIC mp_obj_t mod_nighttrain_sk6812_render(size_t n_args, const mp_obj_t *args
 {
 	mp_buffer_info_t led, g, c;
 
+	assert(n_args == 6);
 	mp_get_buffer_raise(args[1], &led, MP_BUFFER_WRITE);
 	mp_get_buffer_raise(args[2], &g, MP_BUFFER_READ);
 	mp_get_buffer_raise(args[4], &c, MP_BUFFER_READ);
@@ -80,6 +82,7 @@ STATIC mp_obj_t mod_nighttrain_print(size_t n_args, const mp_obj_t *args)
 {
 	mp_buffer_info_t t, s0, s1, s2, s3, s4;
 
+	assert(n_args == 8);
 	mp_get_buffer_raise(args[2], &t, MP_BUFFER_READ);
 	mp_get_buffer_raise(args[3], &s0, MP_BUFFER_WRITE);
 	mp_get_buffer_raise(args[4], &s1, MP_BUFFER_WRITE);
@@ -107,6 +110,7 @@ STATIC mp_obj_t mod_nighttrain_sk9822_render_hardware_gamma(size_t n_args, const
 {
 	mp_buffer_info_t led, g, c;
 
+	assert(n_args == 6);
 	mp_get_buffer_raise(args[1], &led, MP_BUFFER_WRITE);
 	mp_get_buffer_raise(args[2], &g, MP_BUFFER_READ);
 	mp_get_buffer_raise(args[4], &c, MP_BUFFER_READ);
@@ -131,6 +135,7 @@ STATIC mp_obj_t mod_nighttrain_sk9822_render_software_gamma(size_t n_args, const
 {
 	mp_buffer_info_t led, g, c;
 
+	assert(n_args == 6);
 	mp_get_buffer_raise(args[1], &led, MP_BUFFER_WRITE);
 	mp_get_buffer_raise(args[2], &g, MP_BUFFER_READ);
 	mp_get_buffer_raise(args[4], &c, MP_BUFFER_READ);
@@ -193,6 +198,7 @@ STATIC mp_obj_t mod_nighttrain_termio_render(size_t n_args, const mp_obj_t *args
 {
 	mp_buffer_info_t led, g, c;
 
+	assert(n_args == 5);
 	mp_get_buffer_raise(args[0], &led, MP_BUFFER_WRITE);
 	mp_get_buffer_raise(args[1], &g, MP_BUFFER_READ);
 	mp_get_buffer_raise(args[3], &c, MP_BUFFER_READ);
