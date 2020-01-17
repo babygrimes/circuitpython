@@ -73,8 +73,6 @@ INC += -I$(BUILD)
 INC += -I$(BUILD)/genhdr
 INC += -I./../../lib/cmsis/inc
 INC += -I./boards/$(BOARD)
-INC += -I./modules/ubluepy
-INC += -I./modules/ble
 INC += -I./nrfx
 INC += -I./nrfx/hal
 INC += -I./nrfx/mdk
@@ -138,6 +136,7 @@ SRC_NRFX = $(addprefix nrfx/,\
 	drivers/src/nrfx_uarte.c \
 	drivers/src/nrfx_gpiote.c \
 	drivers/src/nrfx_rtc.c \
+	drivers/src/nrfx_nvmc.c \
 	)
 
 ifdef EXTERNAL_FLASH_DEVICES
@@ -156,6 +155,7 @@ SRC_C += \
 	boards/$(BOARD)/pins.c \
 	device/$(MCU_VARIANT)/startup_$(MCU_SUB_VARIANT).c \
 	bluetooth/ble_drv.c \
+	common-hal/_bleio/bonding.c \
 	lib/libc/string0.c \
 	lib/mp-readline/readline.c \
 	lib/oofatfs/ff.c \
@@ -167,7 +167,6 @@ SRC_C += \
 	lib/utils/pyexec.c \
 	lib/utils/stdout_helpers.c \
 	lib/utils/sys_stdio_mphal.c \
-	nrfx/hal/nrf_nvmc.c \
 	nrfx/mdk/system_$(MCU_SUB_VARIANT).c \
 	peripherals/nrf/cache.c \
 	peripherals/nrf/clocks.c \
